@@ -3,7 +3,7 @@ from wordpress_xmlrpc.methods.posts import GetPosts
 import configparser
 import collections
 
-# This fixes AttributeError: module 'collections' has no attribute 'Iterable'
+# This fixes the "AttributeError: module 'collections' has no attribute 'Iterable'" error
 collections.Iterable = collections.abc.Iterable
 
 cfg = configparser.ConfigParser(inline_comment_prefixes=('#', ';'))
@@ -23,7 +23,7 @@ print(f"Total orders retrieved: {len(shop_orders)}")
 for post in shop_orders:
     print(f"OrderID: {post.id}, Status: {post.post_status}, Date: {post.date}, Terms: {post.terms}")
 
-# Filter for completed orders
+# Filter only the completed orders
 completed_orders = [post for post in shop_orders if post.post_status == 'wc-completed' ]
 print("Completed Orders:")
 
